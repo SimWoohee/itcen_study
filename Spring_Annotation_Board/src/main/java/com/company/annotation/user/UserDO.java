@@ -39,11 +39,13 @@ public class UserDO {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
 	@Override
 	public String toString() {
-		return "UserDO [id=" + id + ", password=" + password + ", name=" + name + ", role=" + role + "]";
+		return "UserDO [id=" + id + ", password=" + password + ", pwencrypt=" + pwencrypt + ", name=" + name + ", role="
+				+ role + "]";
 	}
+	
+	
 	
 	
 }

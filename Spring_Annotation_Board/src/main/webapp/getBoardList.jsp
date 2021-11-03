@@ -6,21 +6,6 @@
 <!-- 추가 -->
 <%@ page errorPage="error.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%
-	String searchField = null;
-	String searchText = null;
-	
-	if(request.getParameter("searchCondition") != null 
-			&& request.getParameter("searchKeyword") != null){
-		searchField = request.getParameter("searchCondition");
-		searchText = request.getParameter("searchKeyword");
-	}
-	
-	BoardDAO boardDAO = new BoardDAO();
-	List<BoardDO> boardList = boardDAO.getBoardList(searchField, searchText);
-	request.setAttribute("boardList", boardList);
-
-%>
 
 <!DOCTYPE html>
 <html>
@@ -66,7 +51,8 @@
 			</table>
 			<br><br>
 			<a href="insertBoard.jsp">새 게시글 등록</a>&nbsp;&nbsp;&nbsp;
-			<a href="getBoardList.do">전체 게시글 목록 보기</a>
+			<a href="getBoardList.do">전체 게시글 목록 보기</a>&nbsp;&nbsp;&nbsp;
+			<a href="index.jsp">Welcome Page</a>
 		</form>
 	</center>
 </body>

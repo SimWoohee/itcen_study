@@ -1,8 +1,8 @@
 package com.company.view.board;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,16 +17,17 @@ import com.company.annotation.board.BoardDO;
  */
 @Controller
 public class BoardController {
+	@Autowired
+	private BoardDAO boardDAO;
 	
 	@RequestMapping("/getBoardList.do")
-	public String getBoardList(BoardDO boardDO, BoardDAO boardDAO, Model model, 
-						String searchField, String searchText) {
-		model.addAttribute("boardList", boardDAO.getBoardList(searchField, searchText));
+	public String getBoardList(BoardDO boardDO, Model model){
+		model.addAttribute("boardList", boardDAO.getBoardList(boardDO));
 		return "/getBoardList.jsp";
 	}
 	
 	@RequestMapping("/insertBoard.do")
-	public ModelAndView insertBoard(BoardDO boardDO, BoardDAO boardDAO) {
+	public ModelAndView insertBoard(BoardDO boardDO) {
 		boardDAO.insertBoard(boardDO);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:getBoardList.do");
@@ -35,7 +36,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/deleteBoard.do")
-	public ModelAndView deleteBoard(BoardDO boardDO, BoardDAO boardDAO) {
+	public ModelAndView deleteBoard(BoardDO boardDO) {
 		boardDAO.deleteBoard(boardDO);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/getBoardList.do");
@@ -43,7 +44,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/updateBoard.do")
-	public ModelAndView updateBoard(BoardDO boardDO, BoardDAO boardDAO) {
+	public ModelAndView updateBoard(BoardDO boardDO) {
 		boardDAO.updateBoard(boardDO);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/getBoardList.do");
@@ -51,7 +52,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/getBoard.do")
-	public String getBoard(BoardDO board, BoardDAO boardDAO, Model model) {
+	public String getBoard(BoardDO board, Model model) {
 		model.addAttribute("board", boardDAO.getBoard(board));
 		return "/getBoard.jsp";
 	}

@@ -37,7 +37,8 @@
 		</form>
 		<br>
 		<div>
-			<span><a href="<c:url value='/insertUser.jsp'/>">회원가입</a></span>
+			<span><a href="<c:url value='/insertUser.jsp'/>">회원가입</a></span> &nbsp;&nbsp;&nbsp;&nbsp;
+			<span><a href="index.jsp">Welcome Page</a></span>
 		</div>
 	</div>
 

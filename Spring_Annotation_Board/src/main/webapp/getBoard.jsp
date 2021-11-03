@@ -56,9 +56,9 @@
 			</table>
 		</form>
 		<hr>
-		<a href="insertBoard.jsp">새 게시글 등록</a>
+		<a href="insertBoard.jsp">새 게시글 등록</a> &nbsp;&nbsp;&nbsp;
 		<a href="deleteBoard.do?seq=${board.seq}">게시글 삭제</a> &nbsp;&nbsp;&nbsp;
-		<a href="getBoardList.do">전체 게시글 목록 보기</a>
+		<a href="getBoardList.do">전체 게시글 목록 보기</a>  
 	</center>
 </body>
 </html>

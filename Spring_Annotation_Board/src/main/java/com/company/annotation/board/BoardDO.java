@@ -19,6 +19,9 @@ public class BoardDO {
 	private Date regdate;		//작성일자
 
 	private int cnt;			//조회수
+	
+	//추가
+	private String searchCondition;
 
 	
 
